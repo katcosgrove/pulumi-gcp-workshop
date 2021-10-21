@@ -34,7 +34,7 @@ const image = new docker.Image("example", {
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as resources from "@pulumi/gcp";
+import * as gcp from "@pulumi/gcp";
 import * as docker from "@pulumi/docker";
 
 const bucket = new gcp.storage.Bucket("website", {
@@ -54,7 +54,7 @@ const acl = new gcp.storage.DefaultObjectAccessControl("website", {
       name: name,
       source: new pulumi.asset.FileAsset(`../wwwroot/${name}`),
       
-    }, { dependsOn: accessControl })
+    }, { dependsOn: acl })
 );
 
 const imageName = "my-first-gcp-app";
@@ -104,7 +104,7 @@ const container = new gcp.cloudrun.Service("temp-app", {
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as resources from "@pulumi/gcp";
+import * as gcp from "@pulumi/gcp";
 import * as docker from "@pulumi/docker";
 
 const bucket = new gcp.storage.Bucket("website", {
@@ -124,7 +124,7 @@ const acl = new gcp.storage.DefaultObjectAccessControl("website", {
       name: name,
       source: new pulumi.asset.FileAsset(`../wwwroot/${name}`),
       
-    }, { dependsOn: accessControl })
+    }, { dependsOn: acl })
 );
 
 const imageName = "my-first-gcp-app";

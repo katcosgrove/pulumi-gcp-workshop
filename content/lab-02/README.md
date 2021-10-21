@@ -24,7 +24,7 @@ You'll notice we've set a location parameter here, for our bucket.
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as resources from "@pulumi/gcp";
+import * as gcp from "@pulumi/gcp";
 
 const bucket = new gcp.storage.Bucket("website", {
   location: "US",
@@ -49,7 +49,7 @@ const acl = new gcp.storage.DefaultObjectAccessControl("website", {
 
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
-import * as resources from "@pulumi/gcp";
+import * as gcp from "@pulumi/gcp";
 
 const bucket = new gcp.storage.Bucket("website", {
   location: "US",
